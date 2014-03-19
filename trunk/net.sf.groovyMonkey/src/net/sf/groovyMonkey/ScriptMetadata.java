@@ -50,13 +50,9 @@ import static org.eclipse.jface.dialogs.MessageDialog.openError;
 import static org.eclipse.swt.widgets.Display.getCurrent;
 import static org.eclipse.swt.widgets.Display.getDefault;
 import static org.eclipse.ui.PlatformUI.getWorkbench;
-import static org.eclipse.update.search.UpdateSearchRequest.createDefaultSiteSearchCategory;
-import static org.eclipse.update.ui.UpdateManagerUI.openInstaller;
 import static org.osgi.framework.Bundle.UNINSTALLED;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -67,9 +63,11 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
+
 import net.sf.groovyMonkey.lang.IMonkeyScriptFactory;
 import net.sf.groovyMonkey.util.ListUtil;
 import net.sf.groovyMonkey.util.SetUtil;
+
 import org.apache.commons.lang.StringUtils;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
@@ -79,15 +77,11 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.Status;
 import org.eclipse.jface.dialogs.MessageDialog;
-import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IEditorDescriptor;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.part.FileEditorInput;
-import org.eclipse.update.search.UpdateSearchRequest;
-import org.eclipse.update.search.UpdateSearchScope;
-import org.eclipse.update.ui.UpdateJob;
 import org.osgi.framework.Bundle;
 
 public class ScriptMetadata
@@ -554,8 +548,6 @@ public class ScriptMetadata
         if( missingPlugins.length() > 0 )
         {
             final String choice = notifyMissingDOMs( chomp( missingPlugins.toString() ) );
-            if( choice.startsWith( "Install" ) )
-                launchUpdateInstaller( missingUrls );
             if( choice.startsWith( "Edit" ) )
                 openEditor();
             return false;
@@ -610,40 +602,6 @@ public class ScriptMetadata
             openError( null, "Eclipse::PartInitException", "Unable to open editor on " + file.getName() + " due to " + x.toString() );
         }
     }
-	private void launchUpdateInstaller( final URLtoPluginMap missingUrls )
-    {
-        if( getCurrent() == null )
-        {
-            final Runnable runnable = new Runnable()
-            {
-                public void run()
-                {
-                    launchUpdateInstaller( missingUrls );
-                }
-            };
-            getDefault().syncExec( runnable );
-            return;
-        }
-		final UpdateSearchScope scope = new UpdateSearchScope();
-        for( final String url : missingUrls.map.keySet() )
-        {
-            final String id = missingUrls.getPluginNames( url );
-            final String plural = id.indexOf( "," ) >= 0 ? "s" : "";
-            final String description = "Site providing DOM" + plural + " ( " + id + " )";
-			try
-            {
-				scope.addSearchSite( description, new URL( url ), new String[ 0 ] );
-			}
-            catch( final MalformedURLException x ) 
-            {
-                throw new RuntimeException( x );
-            }
-		}
-		final UpdateSearchRequest request = new UpdateSearchRequest( createDefaultSiteSearchCategory(), scope );
-		final UpdateJob job = new UpdateJob( "Install Groovy Monkey DOMs", request );
-        final Shell shell = getWorkbench().getActiveWorkbenchWindow().getShell();
-		openInstaller( shell, job );
-	}
 	private String notifyMissingDOMs( final String missingPlugins )
     {
         if( getCurrent() == null )
@@ -661,7 +619,7 @@ public class ScriptMetadata
         }
         final String plural = missingPlugins.indexOf( "\n" ) >= 0 ? "s" : "";
         final String these = isNotBlank( plural ) ? "these" : "this";
-        final String[] choices = new String[]{ "Cancel Script", "Edit Script", "Install Plug-in" + plural };
+        final String[] choices = new String[]{ "Cancel Script", "Edit Script" };
         final MessageDialog dialog = new MessageDialog( null,
                                                         "Missing DOM" + plural,
                                                         null,
