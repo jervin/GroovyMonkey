@@ -109,10 +109,10 @@ extends IconAndMessageDialog
     *            per <code>IStatus.matches</code>
     * @see org.eclipse.core.runtime.IStatus#matches(int)
     */
-   public ErrorDialog(Shell parentShell, String dialogTitle, String message,
-           IStatus status, int displayMask) {
+   public ErrorDialog(final Shell parentShell, final String dialogTitle, final String message,
+           final IStatus status, final int displayMask) {
        super(parentShell);
-       this.title = dialogTitle == null ? JFaceResources
+       title = dialogTitle == null ? JFaceResources
                .getString("Problem_Occurred") : //$NON-NLS-1$
                dialogTitle;
        this.message = message == null ? status.getMessage()
@@ -132,7 +132,7 @@ extends IconAndMessageDialog
     * visible if the error being displayed specifies child details.
     */
    @Override
-protected void buttonPressed(int id) {
+protected void buttonPressed(final int id) {
        if (id == IDialogConstants.DETAILS_ID) {
            // was the details button pressed?
            toggleDetailsArea();
@@ -145,7 +145,7 @@ protected void buttonPressed(int id) {
     * (non-Javadoc) Method declared in Window.
     */
    @Override
-protected void configureShell(Shell shell) {
+protected void configureShell(final Shell shell) {
        super.configureShell(shell);
        shell.setText(title);
    }
@@ -154,7 +154,7 @@ protected void configureShell(Shell shell) {
     * (non-Javadoc) Method declared on Dialog.
     */
    @Override
-protected void createButtonsForButtonBar(Composite parent) {
+protected void createButtonsForButtonBar(final Composite parent) {
        // create OK and Details buttons
        createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL,
                true);
@@ -166,7 +166,7 @@ protected void createButtonsForButtonBar(Composite parent) {
     * @param parent the parent composite
     * @since 3.2
     */
-    protected void createDetailsButton(Composite parent) {
+    protected void createDetailsButton(final Composite parent) {
         if (shouldShowDetailsButton()) {
            detailsButton = createButton(parent, IDialogConstants.DETAILS_ID,
                    IDialogConstants.SHOW_DETAILS_LABEL, false);
@@ -181,18 +181,18 @@ protected void createButtonsForButtonBar(Composite parent) {
     * message.
     */
    @Override
-protected Control createDialogArea(Composite parent) {
+protected Control createDialogArea(final Composite parent) {
        createMessageArea(parent);
        // create a composite with standard margins and spacing
-       Composite composite = new Composite(parent, SWT.NONE);
-       GridLayout layout = new GridLayout();
+       final Composite composite = new Composite(parent, SWT.NONE);
+       final GridLayout layout = new GridLayout();
        layout.marginHeight = convertVerticalDLUsToPixels(IDialogConstants.VERTICAL_MARGIN);
        layout.marginWidth = convertHorizontalDLUsToPixels(IDialogConstants.HORIZONTAL_MARGIN);
        layout.verticalSpacing = convertVerticalDLUsToPixels(IDialogConstants.VERTICAL_SPACING);
        layout.horizontalSpacing = convertHorizontalDLUsToPixels(IDialogConstants.HORIZONTAL_SPACING);
        layout.numColumns = 2;
        composite.setLayout(layout);
-       GridData childData = new GridData(GridData.FILL_BOTH);
+       final GridData childData = new GridData(GridData.FILL_BOTH);
        childData.horizontalSpan = 2;
        composite.setLayoutData(childData);
        composite.setFont(parent.getFont());
@@ -203,11 +203,11 @@ protected Control createDialogArea(Composite parent) {
     * @see IconAndMessageDialog#createDialogAndButtonArea(Composite)
     */
    @Override
-protected void createDialogAndButtonArea(Composite parent) {
+protected void createDialogAndButtonArea(final Composite parent) {
        super.createDialogAndButtonArea(parent);
-       if (this.dialogArea instanceof Composite) {
+       if (dialogArea instanceof Composite) {
            //Create a label if there are no children to force a smaller layout
-           Composite dialogComposite = (Composite) dialogArea;
+           final Composite dialogComposite = (Composite) dialogArea;
            if (dialogComposite.getChildren().length == 0) {
                 new Label(dialogComposite, SWT.NULL);
             }
@@ -239,33 +239,33 @@ protected Image getImage() {
     *            the parent composite
     * @return the drop-down list component
     */
-   protected List createDropDownList(Composite parent) {
+   protected List createDropDownList(final Composite parent) {
        // create the list
        list = new List(parent, SWT.BORDER | SWT.H_SCROLL | SWT.V_SCROLL
                | SWT.MULTI | SWT.RESIZE );
        // fill the list
        populateList(list);
-       GridData data = new GridData(GridData.HORIZONTAL_ALIGN_FILL
+       final GridData data = new GridData(GridData.HORIZONTAL_ALIGN_FILL
                | GridData.GRAB_HORIZONTAL | GridData.VERTICAL_ALIGN_FILL
                | GridData.GRAB_VERTICAL);
        data.heightHint = list.getItemHeight() * ( LIST_ITEM_COUNT > list.getItemCount() ? LIST_ITEM_COUNT : list.getItemCount() );
        data.horizontalSpan = 2;
        list.setLayoutData(data);
        list.setFont(parent.getFont());
-       Menu copyMenu = new Menu(list);
-       MenuItem copyItem = new MenuItem(copyMenu, SWT.NONE);
+       final Menu copyMenu = new Menu(list);
+       final MenuItem copyItem = new MenuItem(copyMenu, SWT.NONE);
        copyItem.addSelectionListener(new SelectionListener() {
            /*
             * @see SelectionListener.widgetSelected (SelectionEvent)
             */
-           public void widgetSelected(SelectionEvent e) {
+           public void widgetSelected(final SelectionEvent e) {
                copyToClipboard();
            }
 
            /*
             * @see SelectionListener.widgetDefaultSelected(SelectionEvent)
             */
-           public void widgetDefaultSelected(SelectionEvent e) {
+           public void widgetDefaultSelected(final SelectionEvent e) {
                copyToClipboard();
            }
        });
@@ -314,8 +314,8 @@ public int open() {
     *         button was pressed, or <code>Dialog.CANCEL</code> if this
     *         dialog's close window decoration or the ESC key was used.
     */
-   public static int openError(Shell parent, String dialogTitle,
-           String message, IStatus status) {
+   public static int openError(final Shell parent, final String dialogTitle,
+           final String message, final IStatus status) {
        return openError(parent, dialogTitle, message, status, IStatus.OK
                | IStatus.INFO | IStatus.WARNING | IStatus.ERROR);
    }
@@ -347,9 +347,9 @@ public int open() {
     *         dialog's close window decoration or the ESC key was used.
     * @see org.eclipse.core.runtime.IStatus#matches(int)
     */
-   public static int openError(Shell parentShell, String title,
-           String message, IStatus status, int displayMask) {
-       ErrorDialog dialog = new ErrorDialog(parentShell, title, message,
+   public static int openError(final Shell parentShell, final String title,
+           final String message, final IStatus status, final int displayMask) {
+       final ErrorDialog dialog = new ErrorDialog(parentShell, title, message,
                status, displayMask);
        return dialog.open();
    }
@@ -361,7 +361,7 @@ public int open() {
     * path was null then it (and the colon) are omitted.
     * @param listToPopulate The list to fill.
     */
-   private void populateList(List listToPopulate) {
+   private void populateList(final List listToPopulate) {
        populateList(listToPopulate, status, 0, shouldIncludeTopLevelErrorInDetails);
    }
 
@@ -375,23 +375,23 @@ public int open() {
     * @param includeStatus whether to include the buildingStatus in the display or
     * just its children
     */
-   private void populateList(List listToPopulate, IStatus buildingStatus,
-           int nsting, boolean includeStatus) {
+   private void populateList(final List listToPopulate, final IStatus buildingStatus,
+           final int nsting, final boolean includeStatus) {
        int nesting = nsting;
        if (!buildingStatus.matches(displayMask)) {
            return;
        }
 
-       Throwable t = buildingStatus.getException();
-       boolean isCoreException= t instanceof CoreException;
+       final Throwable t = buildingStatus.getException();
+       final boolean isCoreException= t instanceof CoreException;
        boolean incrementNesting= false;
 
         if (includeStatus) {
-            StringBuffer sb = new StringBuffer();
+            final StringBuffer sb = new StringBuffer();
             for (int i = 0; i < nesting; i++) {
                 sb.append(NESTING_INDENT);
             }
-            String message = buildingStatus.getMessage();
+            final String message = buildingStatus.getMessage();
            sb.append(message);
             listToPopulate.add(sb.toString());
             incrementNesting= true;
@@ -399,7 +399,7 @@ public int open() {
 
        if (!isCoreException && t != null) {
         // Include low-level exception message
-            StringBuffer sb = new StringBuffer();
+            final StringBuffer sb = new StringBuffer();
             for (int i = 0; i < nesting; i++) {
                 sb.append(NESTING_INDENT);
             }
@@ -421,8 +421,8 @@ public int open() {
 
        // Look for a nested core exception
        if (isCoreException) {
-           CoreException ce = (CoreException)t;
-           IStatus eStatus = ce.getStatus();
+           final CoreException ce = (CoreException)t;
+           final IStatus eStatus = ce.getStatus();
            // Only print the exception message if it is not contained in the parent message
            if (message == null || message.indexOf(eStatus.getMessage()) == -1) {
                populateList(listToPopulate, eStatus, nesting, true);
@@ -431,15 +431,16 @@ public int open() {
 
 
        // Look for child status
-       IStatus[] children = buildingStatus.getChildren();
-       for (int i = 0; i < children.length; i++) {
-           populateList(listToPopulate, children[i], nesting, true);
+       final IStatus[] children = buildingStatus.getChildren();
+       for (final IStatus element : children)
+    {
+           populateList(listToPopulate, element, nesting, true);
        }
    }
 
    private java.util.List< String > getStackTrace( final Throwable t )
    {
-       final String stackTrace = new StringPrintWriter( t ).getString();
+       @SuppressWarnings("resource") final String stackTrace = new StringPrintWriter( t ).getString();
        final String[] array = StringUtils.split( StringUtils.replace( stackTrace, "\r\n", "\n" ), "\n" );
        final java.util.List< String > lines = new ArrayList< String >();
        for( final String line : array )
@@ -460,13 +461,14 @@ public int open() {
     *         <code>false</code> otherwise
     * @see org.eclipse.core.runtime.IStatus#matches(int)
     */
-   protected static boolean shouldDisplay(IStatus status, int mask) {
-       IStatus[] children = status.getChildren();
+   protected static boolean shouldDisplay(final IStatus status, final int mask) {
+       final IStatus[] children = status.getChildren();
        if (children == null || children.length == 0) {
            return status.matches(mask);
        }
-       for (int i = 0; i < children.length; i++) {
-           if (children[i].matches(mask)) {
+       for (final IStatus element : children)
+    {
+           if (element.matches(mask)) {
                 return true;
             }
        }
@@ -478,8 +480,8 @@ public int open() {
     * pressing the details button.
     */
    private void toggleDetailsArea() {
-       Point windowSize = getShell().getSize();
-       Point oldSize = getShell().computeSize(SWT.DEFAULT, SWT.DEFAULT);
+       final Point windowSize = getShell().getSize();
+       final Point oldSize = getShell().computeSize(SWT.DEFAULT, SWT.DEFAULT);
        if (listCreated) {
            list.dispose();
            listCreated = false;
@@ -488,7 +490,7 @@ public int open() {
            list = createDropDownList((Composite) getContents());
            detailsButton.setText(IDialogConstants.HIDE_DETAILS_LABEL);
        }
-       Point newSize = getShell().computeSize(SWT.DEFAULT, SWT.DEFAULT);
+       final Point newSize = getShell().computeSize(SWT.DEFAULT, SWT.DEFAULT);
        getShell()
                .setSize(
                        new Point(windowSize.x, windowSize.y
@@ -502,8 +504,8 @@ public int open() {
     * @param buffer
     * @param nesting
     */
-   private void populateCopyBuffer(IStatus buildingStatus,
-           StringBuffer buffer, int nesting) {
+   private void populateCopyBuffer(final IStatus buildingStatus,
+           final StringBuffer buffer, final int nesting) {
        if (!buildingStatus.matches(displayMask)) {
            return;
        }
@@ -518,15 +520,16 @@ public int open() {
            buffer.append( "\n" );
        }
        // Look for a nested core exception
-       Throwable t = buildingStatus.getException();
+       final Throwable t = buildingStatus.getException();
        if (t instanceof CoreException) {
-           CoreException ce = (CoreException)t;
+           final CoreException ce = (CoreException)t;
            populateCopyBuffer(ce.getStatus(), buffer, nesting + 1);
        }
 
-       IStatus[] children = buildingStatus.getChildren();
-       for (int i = 0; i < children.length; i++) {
-           populateCopyBuffer(children[i], buffer, nesting + 1);
+       final IStatus[] children = buildingStatus.getChildren();
+       for (final IStatus element : children)
+    {
+           populateCopyBuffer(element, buffer, nesting + 1);
        }
    }
 
@@ -537,7 +540,7 @@ public int open() {
        if (clipboard != null) {
             clipboard.dispose();
         }
-       StringBuffer statusBuffer = new StringBuffer();
+       final StringBuffer statusBuffer = new StringBuffer();
        populateCopyBuffer(status, statusBuffer, 0);
        clipboard = new Clipboard(list.getDisplay());
        clipboard.setContents(new Object[] { statusBuffer.toString() },
@@ -568,7 +571,7 @@ public boolean close() {
     */
    protected final void showDetailsArea() {
        if (!listCreated) {
-           Control control = getContents();
+           final Control control = getContents();
            if (control != null && ! control.isDisposed()) {
                 toggleDetailsArea();
             }
@@ -597,7 +600,7 @@ public boolean close() {
     * @param status the status to be displayed in the details list
     * @since 3.1
     */
-   protected final void setStatus(IStatus status) {
+   protected final void setStatus(final IStatus status) {
        if (this.status != status) {
             this.status = status;
        }
@@ -632,11 +635,11 @@ public boolean close() {
         *
         * @param initialSize  an int specifying the initial size of the buffer.
         */
-       public StringPrintWriter(int initialSize) {
+       public StringPrintWriter(final int initialSize) {
            super(new StringWriter(initialSize));
        }
 
-       public StringPrintWriter( Throwable exception )
+       public StringPrintWriter( final Throwable exception )
        {
            this();
            exception.printStackTrace( this );
@@ -651,7 +654,7 @@ public boolean close() {
         */
        public String getString() {
            flush();
-           return ((StringWriter) this.out).toString();
+           return ((StringWriter) out).toString();
        }
 
    }
