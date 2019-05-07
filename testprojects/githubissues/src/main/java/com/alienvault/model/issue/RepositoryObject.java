@@ -1,4 +1,4 @@
-package com.alienvault.model;
+package com.alienvault.model.issue;
 
 import io.aexp.nodes.graphql.annotations.GraphQLProperty;
 

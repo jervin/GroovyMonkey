@@ -3,6 +3,8 @@ package com.alienvault.model;
 import io.aexp.nodes.graphql.annotations.GraphQLProperty;
 import java.util.List;
 
+import com.alienvault.model.issue.Issue;
+
 @GraphQLProperty(name = "nodes")
 public class NodesObject 
 {

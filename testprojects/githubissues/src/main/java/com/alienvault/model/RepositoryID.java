@@ -1,5 +1,7 @@
 package com.alienvault.model;
 
+// Simple POJO that keeps the owner and name of the repository.  The kind that other languages manage to
+//  do less verbosely.
 public class RepositoryID {
 	
 	private final String owner;

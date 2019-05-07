@@ -1,15 +1,20 @@
 package com.alienvault;
 
-import com.alienvault.model.Issue;
-import com.alienvault.model.RepositoryID;
-import com.alienvault.model.RepositoryRequestObj;
-import com.google.common.collect.Lists;
-import com.google.common.collect.Sets;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
-import java.util.Set;
+import java.util.Map;
+import java.util.TreeSet;
+
 import org.apache.commons.lang3.StringUtils;
+
+import com.alienvault.model.Day;
+import com.alienvault.model.RepositoryID;
+import com.alienvault.model.RepositoryRequestObj;
+import com.alienvault.model.issue.Issue;
+import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
+import com.google.common.collect.Sets;
 
 /**
  * GitHub Issues -------------
@@ -62,7 +67,9 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class Main {
 	// Yes not the most secure thing, need to store this is some sort of secure store, or have the user pass it in.
-	private static final String authToken = "ec48107f106e90ccbdda0103b8ad2e24f25329f9";
+	//  Since I committed these changes to GitHub, GitHub doesn't like it when you put the auth key in the repository
+	//  for all to see, so the authToken needs to be replaced.
+	private static final String authToken = "XXXdeadbeefXXX";
     /**
      * @param args String array with Github repositories with the format
      * "owner/repository"
@@ -87,7 +94,7 @@ public class Main {
     		System.out.println("Nothing to process here, exiting.  Please re-run this with the repository keys on the command line.");
     		// I think no-op method calls can be valid, in this case better than throwing an exception.  If HotSpot can see that the args command is 
     		//  empty, sometimes the method call can be skipped in its entirety.
-    		// TODO: Write a help message here giving the user an example input.
+    		// TODO: Write a help message here giving the user a valid example input.
     		return;
     	}
     	queryRepositories(repositories);
@@ -100,19 +107,55 @@ public class Main {
 				return o1.getCreatedAt().compareTo(o2.getCreatedAt());
 			}
 		};
-		final Set<Issue> issues = Sets.newTreeSet(comparator);
+		final TreeSet<Issue> issues = Sets.newTreeSet(comparator);
+		// Using LinkedHashMap to keep the order of the keys straight.
+		final Map<String, Day> topDayMap = Maps.newLinkedHashMap(); 
 		final List<RepositoryRequestObj> responses = Lists.newArrayList();
 		for (final RepositoryID repositoryID : repositories) {
 			final RepositoryRequestObj queryResponse = RepositoryQueryUtil.query(repositoryID, authToken);
 			responses.add(queryResponse);
 			for (final Issue issue : queryResponse.getIssues().getNodes()) {
 				issues.add(issue);
+				if(!topDayMap.containsKey(issue.toDay())) {
+					topDayMap.put(issue.toDay(), new Day(issue.toDay()));
+				}
+				final Day day = topDayMap.get(issue.toDay());
+				day.addOccurrance(issue.getRepository().getNameWithOwner(), 1);
 			}
 		}
-		for (final Issue issue : issues) {
-			System.out.println("issue: " + issue);
+		final Day topDay = getTopDay(topDayMap);
+		printReport(issues, topDay);
+	}
+	// Need to go through the map to get the list
+	public static Day getTopDay(final Map<String, Day> topDayMap) {
+		Day topDay = null;
+		int maxCount = 0;
+		for (final String dayString : topDayMap.keySet()) {
+			final Day day = topDayMap.get(dayString);
+			if (maxCount > day.getTotalCount())
+				continue;
+			topDay = day;
+			maxCount = day.getTotalCount();
 		}
-		
-		
+		return topDay;
+	}
+	// Specified TreeSet here because that is how the issues are properly ordered.  Also am hand creating the 
+	//  JSON document because one: GraphQL isn't JSON and second: the JSON format is not that hard to follow here.
+	public static void printReport(final TreeSet<Issue> issues, final Day topDay) {
+		System.out.println("{");
+		// Printing issues
+		System.out.println("  \"issues\": [");
+		for( final Issue issue: issues) {
+			System.out.println(issue.toJSON("  "));
+		}
+		System.out.println("  ],");
+		System.out.println("  \"top_day\": {");
+		// We have to check the case that somehow we have a set of repositories that don't have any
+		//  issues in them.
+		if(topDay != null) {
+			System.out.println(topDay.toJSON("  "));
+		}
+		System.out.println("  }");
+		System.out.println("}");
 	}
 }
