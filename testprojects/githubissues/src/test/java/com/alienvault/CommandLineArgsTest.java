@@ -6,27 +6,26 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import com.alienvault.model.RepositoryID;
 import java.util.List;
-import org.junit.jupiter.api.Test;
 
 public class CommandLineArgsTest {
 
-	@Test
+	@org.junit.Test
 	public void testGetRepositoriesEmpty() {
 		assertTrue(Main.getRepositories().isEmpty());
 	}
-	@Test
+	@org.junit.Test
 	public void testGetRepositoriesSingle() {
 		final String input = "owner1/repository1";
 		final List<RepositoryID> expected = newArrayList( new RepositoryID("owner1", "repository1"));
 		assertEquals(expected, Main.getRepositories(input));
 	}
-	@Test
+	@org.junit.Test
 	public void testGetRepositoriesSingleWhitespaceIgnored() {
 		final String input = " owner1 / repository1 ";
 		final List<RepositoryID> expected = newArrayList( new RepositoryID("owner1", "repository1"));
 		assertEquals(expected, Main.getRepositories(input));
 	}
-	@Test
+	@org.junit.Test
 	public void testGetRepositoriesMultiple() {
 		final String[] input = new String[] {"owner1/repository1", "owner2/repository2", "owner3/repository3"};
 		final List<RepositoryID> expected = newArrayList( new RepositoryID("owner1", "repository1"), 
@@ -34,7 +33,7 @@ public class CommandLineArgsTest {
 														  new RepositoryID("owner3", "repository3"));
 		assertEquals(expected, Main.getRepositories(input));
 	}
-	@Test
+	@org.junit.Test
 	public void testGetRepositoriesBadInputIgnored() {
 		final String[] input = new String[] {"_", "owner1/repository1", "owner2repository2", "owner3/repository3/extra"};
 		final List<RepositoryID> expected = newArrayList( new RepositoryID("owner1", "repository1"));

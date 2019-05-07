@@ -4,11 +4,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import com.google.common.collect.Maps;
 import java.util.Map;
-import org.junit.jupiter.api.Test;
 
 public class RepositoryQueryUtilTest {
 
-	@Test
+	@org.junit.Test
 	public void testGetAuthHeaders() {
 		final String authToken = "deadbeef";
 		final Map<String, String> expected = Maps.newHashMap();

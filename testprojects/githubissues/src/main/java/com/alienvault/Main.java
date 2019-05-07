@@ -12,7 +12,6 @@ import com.alienvault.model.Day;
 import com.alienvault.model.RepositoryID;
 import com.alienvault.model.RepositoryRequestObj;
 import com.alienvault.model.issue.Issue;
-import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import com.google.common.collect.Sets;
 
@@ -110,10 +109,8 @@ public class Main {
 		final TreeSet<Issue> issues = Sets.newTreeSet(comparator);
 		// Using LinkedHashMap to keep the order of the keys straight.
 		final Map<String, Day> topDayMap = Maps.newLinkedHashMap(); 
-		final List<RepositoryRequestObj> responses = Lists.newArrayList();
 		for (final RepositoryID repositoryID : repositories) {
 			final RepositoryRequestObj queryResponse = RepositoryQueryUtil.query(repositoryID, authToken);
-			responses.add(queryResponse);
 			for (final Issue issue : queryResponse.getIssues().getNodes()) {
 				issues.add(issue);
 				if(!topDayMap.containsKey(issue.toDay())) {
