@@ -4,19 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import com.google.common.collect.Maps;
 import java.util.Map;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class RepositoryQueryUtilTest {
-
-	@BeforeEach
-	void setUp() throws Exception {
-	}
-
-	@AfterEach
-	void tearDown() throws Exception {
-	}
 
 	@Test
 	public void testGetAuthHeaders() {
