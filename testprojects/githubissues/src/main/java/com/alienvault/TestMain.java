@@ -15,7 +15,7 @@ public class TestMain
 
 	public static void main(final String[] args) throws Exception
 	{
-		final String authToken = "b722f3d767fdd193e46d3b7a662580d2c386bfd6";
+		final String authToken = "ec48107f106e90ccbdda0103b8ad2e24f25329f9";
 		final Map<String, String> headers = new HashMap<String, String>();
 		headers.put("Authorization", "bearer "+ authToken);
 		

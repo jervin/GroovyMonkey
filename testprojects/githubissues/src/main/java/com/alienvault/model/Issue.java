@@ -1,6 +1,6 @@
 package com.alienvault.model;
 
-public class NodeObject 
+public class Issue 
 {
 	private String id;
 	private String state;

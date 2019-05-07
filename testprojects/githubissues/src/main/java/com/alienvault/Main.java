@@ -1,10 +1,14 @@
 package com.alienvault;
 
+import com.alienvault.model.Issue;
 import com.alienvault.model.RepositoryID;
 import com.alienvault.model.RepositoryRequestObj;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
+import java.util.Set;
 import org.apache.commons.lang3.StringUtils;
 
 /**
@@ -58,13 +62,12 @@ import org.apache.commons.lang3.StringUtils;
  */
 public class Main {
 	// Yes not the most secure thing, need to store this is some sort of secure store, or have the user pass it in.
-	private static final String authToken = "b722f3d767fdd193e46d3b7a662580d2c386bfd6";
+	private static final String authToken = "ec48107f106e90ccbdda0103b8ad2e24f25329f9";
     /**
      * @param args String array with Github repositories with the format
      * "owner/repository"
      *
      */
-	
 	public static List<RepositoryID> getRepositories(final String... args) {
 		final List<RepositoryID> list = new ArrayList<RepositoryID>();
 		for (final String arg : args) {
@@ -80,7 +83,7 @@ public class Main {
 	
     public static void main(final String[] args) {
     	final List<RepositoryID> repositories = getRepositories(args);
-    	if (repositories.isEmpty()) {
+    	if (repositories.isEmpty()) {	
     		System.out.println("Nothing to process here, exiting.  Please re-run this with the repository keys on the command line.");
     		// I think no-op method calls can be valid, in this case better than throwing an exception.  If HotSpot can see that the args command is 
     		//  empty, sometimes the method call can be skipped in its entirety.
@@ -91,11 +94,25 @@ public class Main {
     }
 
 	public static void queryRepositories(final List<RepositoryID> repositories) {
+		final Comparator<Issue> comparator = new Comparator<Issue>() {
+			@Override
+			public int compare(final Issue o1, final Issue o2) {
+				return o1.getCreatedAt().compareTo(o2.getCreatedAt());
+			}
+		};
+		final Set<Issue> issues = Sets.newTreeSet(comparator);
 		final List<RepositoryRequestObj> responses = Lists.newArrayList();
 		for (final RepositoryID repositoryID : repositories) {
 			final RepositoryRequestObj queryResponse = RepositoryQueryUtil.query(repositoryID, authToken);
-			System.out.println("queryResponse: " + queryResponse);
 			responses.add(queryResponse);
+			for (final Issue issue : queryResponse.getIssues().getNodes()) {
+				issues.add(issue);
+			}
 		}
+		for (final Issue issue : issues) {
+			System.out.println("issue: " + issue);
+		}
+		
+		
 	}
 }

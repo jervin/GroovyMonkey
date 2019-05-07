@@ -10,13 +10,13 @@ public class NodesObject
 	
 	private PageInfo pageInfo;
 	
-	private List<NodeObject> nodes;
+	private List<Issue> nodes;
 
-	public List<NodeObject> getNodes() 
+	public List<Issue> getNodes() 
 	{
 		return nodes;
 	}
-	public void setNodes(final List<NodeObject> nodes) 
+	public void setNodes(final List<Issue> nodes) 
 	{
 		this.nodes = nodes;
 	}
