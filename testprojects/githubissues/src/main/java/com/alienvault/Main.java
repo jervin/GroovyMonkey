@@ -1,4 +1,12 @@
 package com.alienvault;
+
+import com.alienvault.model.RepositoryID;
+import com.alienvault.model.RepositoryRequestObj;
+import com.google.common.collect.Lists;
+import java.util.ArrayList;
+import java.util.List;
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * GitHub Issues -------------
  *
@@ -48,25 +56,46 @@ package com.alienvault;
  *
  * Good Luck!
  */
-public class Main 
-{
-
+public class Main {
+	// Yes not the most secure thing, need to store this is some sort of secure store, or have the user pass it in.
+	private static final String authToken = "b722f3d767fdd193e46d3b7a662580d2c386bfd6";
     /**
      * @param args String array with Github repositories with the format
      * "owner/repository"
      *
      */
-    public static void main(final String[] args) 
-    {
-    	if (args.length == 0)
-    	{
+	
+	public static List<RepositoryID> getRepositories(final String... args) {
+		final List<RepositoryID> list = new ArrayList<RepositoryID>();
+		for (final String arg : args) {
+			final String[] tokens = StringUtils.split(arg, "/");
+			if(tokens.length != 2) {
+				System.out.println("Error command line arg: " + arg + " is not valid, skipping.");
+				continue;
+			}
+			list.add(new RepositoryID(StringUtils.trim(tokens[0]), StringUtils.trim(tokens[1])));
+		}
+		return list;
+	}
+	
+    public static void main(final String[] args) {
+    	final List<RepositoryID> repositories = getRepositories(args);
+    	if (repositories.isEmpty()) {
     		System.out.println("Nothing to process here, exiting.  Please re-run this with the repository keys on the command line.");
     		// I think no-op method calls can be valid, in this case better than throwing an exception.  If HotSpot can see that the args command is 
     		//  empty, sometimes the method call can be skipped in its entirety.
     		// TODO: Write a help message here giving the user an example input.
     		return;
     	}
-    	
+    	queryRepositories(repositories);
     }
 
+	public static void queryRepositories(final List<RepositoryID> repositories) {
+		final List<RepositoryRequestObj> responses = Lists.newArrayList();
+		for (final RepositoryID repositoryID : repositories) {
+			final RepositoryRequestObj queryResponse = RepositoryQueryUtil.query(repositoryID, authToken);
+			System.out.println("queryResponse: " + queryResponse);
+			responses.add(queryResponse);
+		}
+	}
 }

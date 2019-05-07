@@ -1,0 +1,30 @@
+package com.alienvault;
+
+import static org.junit.jupiter.api.Assertions.*;
+
+import com.google.common.collect.Maps;
+import java.util.Map;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+public class RepositoryQueryUtilTest {
+
+	@BeforeEach
+	void setUp() throws Exception {
+	}
+
+	@AfterEach
+	void tearDown() throws Exception {
+	}
+
+	@Test
+	public void testGetAuthHeaders() {
+		final String authToken = "deadbeef";
+		final Map<String, String> expected = Maps.newHashMap();
+		expected.put("Authorization", "bearer " + authToken);
+		final Map<String, String> actual = RepositoryQueryUtil.getAuthHeaders(authToken);
+		assertEquals(expected, actual);
+	}
+
+}

@@ -33,4 +33,39 @@ public class NodesObject
 		this.pageInfo = pageInfo;
 	}
 	@Override public String toString() { return "totalCount: " + totalCount + " pageInfo: " + pageInfo + " nodes: " + nodes; }
+	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((nodes == null) ? 0 : nodes.hashCode());
+		result = prime * result + ((pageInfo == null) ? 0 : pageInfo.hashCode());
+		result = prime * result + totalCount;
+		return result;
+	}
+	@Override
+	public boolean equals(final Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		final NodesObject other = (NodesObject) obj;
+		if (nodes == null) {
+			if (other.nodes != null)
+				return false;
+		} else if (!nodes.equals(other.nodes))
+			return false;
+		if (pageInfo == null) {
+			if (other.pageInfo != null)
+				return false;
+		} else if (!pageInfo.equals(other.pageInfo))
+			return false;
+		if (totalCount != other.totalCount)
+			return false;
+		return true;
+	}
+	
+	
 }
