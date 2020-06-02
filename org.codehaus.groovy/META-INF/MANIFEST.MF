@@ -99,4 +99,5 @@ Require-Bundle: org.apache.ant,
  org.junit,
  org.eclipse.core.runtime
 Bundle-Vendor: The Codehaus
-Eclipse-LazyStart: true
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Bundle-ActivationPolicy: lazy

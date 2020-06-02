@@ -7,6 +7,7 @@ import org.eclipse.core.runtime.SubProgressMonitor;
  * It does not actually provide the object that is put in the binding.  The Eclipse 
  * Job in RunMonkeyScript.run() actually does that.
  */
+@SuppressWarnings("deprecation")
 public class MonitorDOM 
 implements IMonkeyDOMFactory
 {

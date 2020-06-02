@@ -30,7 +30,6 @@ import org.eclipse.jface.preference.FontFieldEditor;
 import org.eclipse.jface.preference.IntegerFieldEditor;
 import org.eclipse.jface.preference.StringFieldEditor;
 import org.eclipse.jface.viewers.CheckboxTreeViewer;
-import org.eclipse.jface.viewers.TableTreeViewer;
 import org.eclipse.jface.viewers.TableViewer;
 import org.eclipse.jface.viewers.TreeViewer;
 import org.eclipse.swt.widgets.Display;
@@ -39,7 +38,6 @@ import org.eclipse.swt.widgets.Display;
  * @author <a href="mailto:ckl@dacelo.nl">Christiaan ten Klooster </a>
  * @version $Revision$
  */
-@SuppressWarnings("deprecation")
 public class JFaceBuilder extends SwtBuilder {
 
     @Override
@@ -48,7 +46,6 @@ public class JFaceBuilder extends SwtBuilder {
 
         // Viewer
         registerFactory("tableViewer", new ViewerFactory(TableViewer.class));
-        registerFactory("tableTreeViewer", new ViewerFactory(TableTreeViewer.class));
         registerFactory("treeViewer", new ViewerFactory(TreeViewer.class));
         registerFactory("checkboxTreeViewer", new ViewerFactory(CheckboxTreeViewer.class));
 

@@ -66,6 +66,7 @@ import org.eclipse.ui.model.WorkbenchContentProvider;
 import org.eclipse.ui.model.WorkbenchLabelProvider;
 import org.eclipse.ui.views.navigator.ResourceNavigator;
 
+@SuppressWarnings("deprecation")
 public class PasteScriptsFromURL
 implements IWorkbenchWindowActionDelegate, IObjectActionDelegate
 {

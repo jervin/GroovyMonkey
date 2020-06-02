@@ -16,6 +16,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.eclipse.core.resources.IFile;
+import org.junit.Ignore;
 import org.osgi.framework.Bundle;
 
 public class IncludeLocalBundleTest
@@ -97,6 +98,7 @@ extends TestCaseAbstract
         map.put( "deployDir", DEPLOY_DIR );
         runMonkeyScript( installScript, map );
     }
+    @Ignore
     public void testIncludeLocalBundle()
     throws Exception
     {

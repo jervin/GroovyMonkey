@@ -103,7 +103,6 @@ implements IWorkbenchWindowActionDelegate
         findEntries( bundle, list, "/" + MONKEY_DIR, FILE_EXTENSION_WILDCARD );
         return list;
     }
-    @SuppressWarnings("unchecked")
     private void findEntries( final Bundle bundle,
                               final List< URL > list,
                               final String directory,

@@ -55,7 +55,7 @@ implements IStartup
     private static GroovyMonkeyPlugin plugin;
     private static BundleContext context;
     private static final Map< String, ScriptMetadata > scriptStore = synchronizedMap( new HashMap< String, ScriptMetadata >() );
-    private ServiceTracker tracker = null;
+    private ServiceTracker<PlatformAdmin, PlatformAdmin> tracker = null;
     private boolean started = false;
     
     public static Map< String, ScriptMetadata > getScriptStore()
@@ -77,7 +77,7 @@ implements IStartup
         super.start( context );
         earlyStartup();
         GroovyMonkeyPlugin.context = context;
-        tracker = new ServiceTracker( context, PlatformAdmin.class.getName(), null );
+        tracker = new ServiceTracker<PlatformAdmin, PlatformAdmin>( context, PlatformAdmin.class.getName(), null );
         tracker.open();
     }
     @Override
@@ -166,7 +166,7 @@ implements IStartup
     }
     public static PlatformAdmin getPlatformAdmin()
     {
-        return ( PlatformAdmin )getDefault().tracker.getService();
+        return getDefault().tracker.getService();
     }
     public static PlatformAdmin platformAdmin()
     {

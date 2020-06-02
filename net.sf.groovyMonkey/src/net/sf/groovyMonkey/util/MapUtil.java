@@ -26,7 +26,8 @@ public class MapUtil
         {
             return key;
         }
-        public K key()
+        @SuppressWarnings("unused")
+		public K key()
         {
             return getKey();
         }
@@ -34,7 +35,8 @@ public class MapUtil
         {
             return value;
         }
-        public V value()
+        @SuppressWarnings("unused")
+		public V value()
         {
             return getValue();
         }

@@ -17,7 +17,7 @@ Bundle-Activator: net.sf.groovymonkey.tests.Activator
 Bundle-ManifestVersion: 2
 Bundle-SymbolicName: net.sf.groovyMonkey.tests;singleton:=true
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: net.sf.groovyMonkey,
  net.sf.groovyMonkey.actions,
  net.sf.groovyMonkey.dom,

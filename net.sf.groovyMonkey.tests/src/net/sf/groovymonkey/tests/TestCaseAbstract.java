@@ -17,7 +17,7 @@ import org.eclipse.core.resources.IFolder;
 import org.eclipse.core.resources.IResource;
 import utmj.threaded.RetriedAssert;
 
-public class TestCaseAbstract
+public abstract class TestCaseAbstract
 extends TestCase
 {   
     public static final String MONKEY_TEST_SCRIPTS = "/monkeyTestScripts/";

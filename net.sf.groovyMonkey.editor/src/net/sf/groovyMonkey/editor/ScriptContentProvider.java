@@ -385,7 +385,8 @@ implements ITreeContentProvider
     private ScriptMetadata data = null;
     private boolean flat = false;
 
-    public Object[] getChildren( final Object parentElement )
+    @SuppressWarnings("deprecation")
+	public Object[] getChildren( final Object parentElement )
     {
         if( parentElement instanceof DOMDescriptor )
         {

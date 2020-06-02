@@ -46,6 +46,7 @@ import org.eclipse.core.runtime.jobs.Job;
 import org.eclipse.ui.IWorkbenchWindow;
 import org.eclipse.ui.progress.UIJob;
 
+@SuppressWarnings("deprecation")
 public class RunMonkeyScript
 {
     public static ScriptMetadata LAST_RUN = null;

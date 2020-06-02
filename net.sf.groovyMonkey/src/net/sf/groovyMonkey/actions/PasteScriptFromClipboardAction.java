@@ -66,6 +66,7 @@ import org.eclipse.ui.model.WorkbenchContentProvider;
 import org.eclipse.ui.model.WorkbenchLabelProvider;
 import org.eclipse.ui.views.navigator.ResourceNavigator;
 
+@SuppressWarnings("deprecation")
 public class PasteScriptFromClipboardAction
 implements IWorkbenchWindowActionDelegate, IObjectActionDelegate
 {
@@ -114,7 +115,7 @@ implements IWorkbenchWindowActionDelegate, IObjectActionDelegate
         final String result = match.replaceAll( "\n" );
         return result;
     }
-    private void highlightNewScriptInNavigator( final IFile file )
+	private void highlightNewScriptInNavigator( final IFile file )
     throws PartInitException
     {
         if( window == null )

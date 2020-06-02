@@ -42,6 +42,7 @@ import org.eclipse.swt.widgets.Menu;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.part.ViewPart;
 
+@SuppressWarnings("deprecation")
 public class DOMView
 extends ViewPart
 implements IRegistryChangeListener
@@ -75,7 +76,7 @@ implements IRegistryChangeListener
      * This is a callback that will allow us to create the viewer and initialize
      * it.
      */
-    @Override
+	@Override
     public void createPartControl( final Composite parent )
     {
         viewer = new TreeViewer( parent, MULTI | H_SCROLL | V_SCROLL );

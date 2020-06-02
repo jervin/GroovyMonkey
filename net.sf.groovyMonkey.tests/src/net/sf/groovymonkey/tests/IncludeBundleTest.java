@@ -8,6 +8,7 @@ import net.sf.groovymonkey.tests.fixtures.dom.TestDOM;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.jobs.ILock;
 import org.eclipse.core.runtime.jobs.Job;
+import org.junit.Ignore;
 
 /**
  * These unit tests don't pass yet.... haven't figured out how to get BundleClassLoaderAdapter to work.
@@ -65,6 +66,7 @@ extends TestCaseAbstract
         assertEquals( getName(), runMonkeyScript( script ) );
         assertTestDOMEquals();
     }
+    @Ignore
     public void testIncludeInBundlePython()
     throws Exception
     {

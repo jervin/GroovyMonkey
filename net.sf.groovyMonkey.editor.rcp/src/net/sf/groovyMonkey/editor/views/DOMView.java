@@ -42,6 +42,7 @@ import org.eclipse.swt.widgets.Menu;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.part.ViewPart;
 
+@SuppressWarnings("deprecation")
 public class DOMView
 extends ViewPart
 implements IRegistryChangeListener
