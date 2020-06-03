@@ -6,8 +6,8 @@ Require-Bundle: org.eclipse.ui.views,
  org.eclipse.ui.editors,
  org.eclipse.ui
 Bundle-Vendor: James E. Ervin
-Fragment-Host: net.sf.groovyMonkey;bundle-version="0.4.0"
-Bundle-Version: 0.5.2.20080423-2000
+Fragment-Host: net.sf.groovyMonkey
+Bundle-Version: 0.6.1.qualifier
 Bundle-Localization: plugin
 Bundle-Name: Editor Fragment for RCP Apps
 Bundle-ManifestVersion: 2

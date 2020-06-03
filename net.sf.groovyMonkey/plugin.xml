@@ -30,10 +30,6 @@
    </extension>
    
    <extension
-         point="org.eclipse.ui.startup">
-      <startup/>
-   </extension>
-   <extension
          point="org.eclipse.ui.popupMenus">
       <objectContribution
             adaptable="false"

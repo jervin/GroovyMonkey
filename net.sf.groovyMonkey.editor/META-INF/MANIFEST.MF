@@ -6,8 +6,8 @@ Require-Bundle: org.eclipse.jdt.core,org.eclipse.jdt.ui,org.eclipse.ui
  .eclipse.ui.editors,org.eclipse.pde.core,org.eclipse.pde.ui,org.eclip
  se.ui
 Bundle-Vendor: James E. Ervin
-Fragment-Host: net.sf.groovyMonkey;bundle-version="0.4.0"
-Bundle-Version: 0.6.1
+Fragment-Host: net.sf.groovyMonkey
+Bundle-Version: 0.6.1.qualifier
 Bundle-Localization: plugin
 Bundle-Name: Editor Fragment
 Bundle-ManifestVersion: 2
