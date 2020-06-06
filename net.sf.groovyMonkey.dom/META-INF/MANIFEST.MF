@@ -11,4 +11,5 @@ Bundle-ManifestVersion: 2
 Bundle-SymbolicName: net.sf.groovyMonkey.dom;singleton:=true
 Bundle-RequiredExecutionEnvironment: JavaSE-1.8
 Import-Package: net.sf.groovyMonkey.dom
+Bundle-ClassPath: .
 

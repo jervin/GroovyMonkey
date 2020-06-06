@@ -4,6 +4,6 @@
 	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
 	<classpathentry exported="true" kind="lib" path="jacl.jar" sourcepath="jacl132.zip"/>
 	<classpathentry exported="true" kind="lib" path="tcljava.jar" sourcepath="jacl132.zip"/>
-	<classpathentry kind="src" path="src/"/>
+	<classpathentry kind="src" path="src/main/java/"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

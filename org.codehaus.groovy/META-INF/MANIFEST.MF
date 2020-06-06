@@ -3,7 +3,8 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Groovy Runtime Plug-in
 Bundle-SymbolicName: org.codehaus.groovy
 Bundle-Version: 0.6.1.qualifier
-Bundle-ClassPath: groovy-eclipse.jar,
+Bundle-ClassPath: .,
+ groovy-eclipse.jar,
  groovy-all-2.2.2.jar
 Groovy-Runtime-Jars: groovy-all-2.2.2.jar
 Export-Package: groovy.beans,

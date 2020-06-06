@@ -8,8 +8,10 @@ Require-Bundle: org.eclipse.core.runtime,
  org.junit
 Bundle-Vendor: James E. Ervin
 Eclipse-LazyStart: true
-Bundle-ClassPath: lib/commons-io-1.2.jar,lib/commons-lang-2.1.jar,.,li
- b/utmj.jar
+Bundle-ClassPath: .,
+ lib/commons-io-1.2.jar,
+ lib/commons-lang-2.1.jar,
+ lib/utmj.jar
 Bundle-Version: 0.6.1.qualifier
 Bundle-Localization: plugin
 Bundle-Name: Tests Plug-in
