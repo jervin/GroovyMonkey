@@ -1,23 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.pde.ui.RuntimeWorkbench">
 <booleanAttribute key="append.args" value="true"/>
 <booleanAttribute key="askclear" value="false"/>
 <booleanAttribute key="automaticAdd" value="false"/>
 <booleanAttribute key="automaticValidate" value="false"/>
 <stringAttribute key="bootstrap" value=""/>
-<stringAttribute key="checked" value="org.codehaus.groovy.eclipse.ui"/>
+<stringAttribute key="checked" value="[NONE]"/>
 <booleanAttribute key="clearConfig" value="false"/>
 <booleanAttribute key="clearws" value="true"/>
 <booleanAttribute key="clearwslog" value="true"/>
 <stringAttribute key="configLocation" value="${workspace_loc}/.metadata/.plugins/org.eclipse.pde.core/Groovy IDE"/>
 <booleanAttribute key="default" value="false"/>
+<setAttribute key="deselected_workspace_bundles"/>
 <booleanAttribute key="includeOptional" value="true"/>
-<stringAttribute key="location" value="${workspace_loc}/../runtime-New_configuration"/>
+<stringAttribute key="location" value="${workspace_loc}/../runtime-GroovyIDE"/>
 <booleanAttribute key="org.eclipse.debug.core.appendEnvironmentVariables" value="true"/>
 <listAttribute key="org.eclipse.debug.ui.favoriteGroups">
 <listEntry value="org.eclipse.debug.ui.launchGroup.debug"/>
 <listEntry value="org.eclipse.debug.ui.launchGroup.run"/>
-<listEntry value="org.eclipse.debug.ui.launchGroup.profile"/>
 </listAttribute>
 <stringAttribute key="org.eclipse.hyades.trace.ui.ATTR_DATA_COLLECTOR" value="org.eclipse.tptp.trace.jvmti.jvmtiMechanism:org.eclipse.tptp.analysisType.jvmti.heap"/>
 <stringAttribute key="org.eclipse.hyades.trace.ui.ATTR_DESTINATION_FILE" value=""/>
@@ -25,6 +25,7 @@
 <stringAttribute key="org.eclipse.hyades.trace.ui.ATTR_DESTINATION_PROJECT" value="ProfileProject"/>
 <booleanAttribute key="org.eclipse.hyades.trace.ui.ATTR_PROFILE_TO_FILE" value="false"/>
 <stringAttribute key="org.eclipse.hyades.trace.ui.ATTR_PROFILING_SET" value="tptp-dummy-profiling-set-Groovy IDE"/>
+<stringAttribute key="org.eclipse.jdt.launching.JRE_CONTAINER" value="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8"/>
 <stringAttribute key="org.eclipse.jdt.launching.PROGRAM_ARGUMENTS" value="-os ${target.os} -ws ${target.ws} -arch ${target.arch} -nl ${target.nl} -consolelog"/>
 <stringAttribute key="org.eclipse.jdt.launching.SOURCE_PATH_PROVIDER" value="org.eclipse.pde.ui.workbenchClasspathProvider"/>
 <booleanAttribute key="org.eclipse.tptp.monitoring.instrumentation.ui.CBE_STATUS_AFTERCALL" value="false"/>
@@ -51,10 +52,294 @@
 <stringAttribute key="pde.version" value="3.3"/>
 <stringAttribute key="product" value="org.eclipse.sdk.ide"/>
 <stringAttribute key="selectedPlugin" value="org.codehaus.groovy.eclipse.ui"/>
-<stringAttribute key="selected_target_plugins" value="com.ibm.icu,javax.servlet,javax.servlet,javax.servlet,org.apache.ant,org.apache.commons.logging,org.apache.commons.logging,org.apache.commons.logging,org.apache.commons.logging,org.apache.commons.logging,org.apache.lucene,org.apache.lucene.analysis,org.eclipse.ant.core,org.eclipse.compare,org.eclipse.core.commands,org.eclipse.core.contenttype,org.eclipse.core.databinding,org.eclipse.core.expressions,org.eclipse.core.filebuffers,org.eclipse.core.filesystem,org.eclipse.core.filesystem.win32.x86,org.eclipse.core.jobs,org.eclipse.core.net,org.eclipse.core.resources,org.eclipse.core.resources.compatibility,org.eclipse.core.resources.win32,org.eclipse.core.runtime,org.eclipse.core.runtime.compatibility,org.eclipse.core.runtime.compatibility.auth,org.eclipse.core.runtime.compatibility.registry,org.eclipse.core.variables,org.eclipse.debug.core,org.eclipse.debug.ui,org.eclipse.equinox.app,org.eclipse.equinox.app,org.eclipse.equinox.common,org.eclipse.equinox.common,org.eclipse.equinox.http.jetty,org.eclipse.equinox.http.jetty,org.eclipse.equinox.http.servlet,org.eclipse.equinox.http.servlet,org.eclipse.equinox.preferences,org.eclipse.equinox.preferences,org.eclipse.equinox.registry,org.eclipse.equinox.registry,org.eclipse.help,org.eclipse.help.base,org.eclipse.help.ui,org.eclipse.jdt.compiler.apt,org.eclipse.jdt.compiler.tool,org.eclipse.jdt.core,org.eclipse.jdt.core.manipulation,org.eclipse.jdt.debug,org.eclipse.jdt.debug.ui,org.eclipse.jdt.junit,org.eclipse.jdt.junit.runtime,org.eclipse.jdt.junit4.runtime,org.eclipse.jdt.launching,org.eclipse.jdt.ui,org.eclipse.jface,org.eclipse.jface.databinding,org.eclipse.jface.text,org.eclipse.ltk.core.refactoring,org.eclipse.ltk.ui.refactoring,org.eclipse.osgi,org.eclipse.osgi,org.eclipse.osgi.services,org.eclipse.osgi.services,org.eclipse.sdk,org.eclipse.search,org.eclipse.swt,org.eclipse.swt.win32.win32.x86,org.eclipse.team.core,org.eclipse.team.ui,org.eclipse.text,org.eclipse.ui,org.eclipse.ui.cheatsheets,org.eclipse.ui.console,org.eclipse.ui.editors,org.eclipse.ui.externaltools,org.eclipse.ui.forms,org.eclipse.ui.ide,org.eclipse.ui.ide.application,org.eclipse.ui.intro,org.eclipse.ui.navigator,org.eclipse.ui.navigator.resources,org.eclipse.ui.views,org.eclipse.ui.views.properties.tabbed,org.eclipse.ui.win32,org.eclipse.ui.workbench,org.eclipse.ui.workbench.texteditor,org.eclipse.update.configurator,org.eclipse.update.core,org.eclipse.update.core.win32,org.eclipse.update.ui,org.junit,org.junit4,org.maven.ide.eclipse,org.mortbay.jetty,org.mortbay.jetty,org.testng.eclipse"/>
-<stringAttribute key="selected_workspace_plugins" value="org.codehaus.groovy.eclipse.ui,org.codehaus.groovy.eclipse.cstviewer,org.codehaus.groovy.eclipse.codeassist,org.codehaus.groovy,org.codehaus.groovy.eclipse.tests,org.codehaus.groovy.eclipse.astviews,org.codehaus.groovy.eclipse,org.codehaus.groovy.eclipse.core.test,org.codehaus.groovy.eclipse.testng,org.codehaus.groovy.eclipse.codebrowsing,org.codehaus.groovy.eclipse.codeassist.completion,org.codehaus.groovy.eclipse.junit,org.codehaus.groovy.eclipse.core.help,org.codehaus.groovy.eclipse.pde"/>
+<setAttribute key="selected_target_bundles">
+<setEntry value="com.ibm.icu@default:default"/>
+<setEntry value="com.jcraft.jsch"/>
+<setEntry value="com.sun.el"/>
+<setEntry value="com.sun.jna"/>
+<setEntry value="com.sun.jna.platform"/>
+<setEntry value="javax.annotation"/>
+<setEntry value="javax.el"/>
+<setEntry value="javax.inject"/>
+<setEntry value="javax.servlet.jsp"/>
+<setEntry value="javax.servlet@default:default"/>
+<setEntry value="org.apache.ant@default:default"/>
+<setEntry value="org.apache.batik.constants"/>
+<setEntry value="org.apache.batik.css"/>
+<setEntry value="org.apache.batik.i18n"/>
+<setEntry value="org.apache.batik.util"/>
+<setEntry value="org.apache.commons.codec"/>
+<setEntry value="org.apache.commons.io"/>
+<setEntry value="org.apache.commons.jxpath"/>
+<setEntry value="org.apache.commons.logging@default:default"/>
+<setEntry value="org.apache.felix.gogo.command"/>
+<setEntry value="org.apache.felix.gogo.runtime"/>
+<setEntry value="org.apache.felix.gogo.shell"/>
+<setEntry value="org.apache.felix.scr"/>
+<setEntry value="org.apache.httpcomponents.httpclient"/>
+<setEntry value="org.apache.httpcomponents.httpclient.win"/>
+<setEntry value="org.apache.httpcomponents.httpcore"/>
+<setEntry value="org.apache.jasper.glassfish"/>
+<setEntry value="org.apache.lucene.analyzers-common"/>
+<setEntry value="org.apache.lucene.analyzers-smartcn"/>
+<setEntry value="org.apache.lucene.core"/>
+<setEntry value="org.apache.xmlgraphics"/>
+<setEntry value="org.apiguardian"/>
+<setEntry value="org.eclipse.ant.core@default:default"/>
+<setEntry value="org.eclipse.ant.launching"/>
+<setEntry value="org.eclipse.ant.ui"/>
+<setEntry value="org.eclipse.compare.core"/>
+<setEntry value="org.eclipse.compare.win32"/>
+<setEntry value="org.eclipse.compare@default:default"/>
+<setEntry value="org.eclipse.core.commands@default:default"/>
+<setEntry value="org.eclipse.core.contenttype@default:default"/>
+<setEntry value="org.eclipse.core.databinding.beans"/>
+<setEntry value="org.eclipse.core.databinding.observable"/>
+<setEntry value="org.eclipse.core.databinding.property"/>
+<setEntry value="org.eclipse.core.databinding@default:default"/>
+<setEntry value="org.eclipse.core.expressions@default:default"/>
+<setEntry value="org.eclipse.core.externaltools"/>
+<setEntry value="org.eclipse.core.filebuffers@default:default"/>
+<setEntry value="org.eclipse.core.filesystem.win32.x86_64"/>
+<setEntry value="org.eclipse.core.filesystem@default:default"/>
+<setEntry value="org.eclipse.core.jobs@default:default"/>
+<setEntry value="org.eclipse.core.net.win32.x86_64"/>
+<setEntry value="org.eclipse.core.net@default:default"/>
+<setEntry value="org.eclipse.core.resources.win32.x86_64"/>
+<setEntry value="org.eclipse.core.resources@default:default"/>
+<setEntry value="org.eclipse.core.runtime@default:true"/>
+<setEntry value="org.eclipse.core.variables@default:default"/>
+<setEntry value="org.eclipse.debug.core@default:default"/>
+<setEntry value="org.eclipse.debug.ui@default:default"/>
+<setEntry value="org.eclipse.e4.core.commands"/>
+<setEntry value="org.eclipse.e4.core.contexts"/>
+<setEntry value="org.eclipse.e4.core.di"/>
+<setEntry value="org.eclipse.e4.core.di.annotations"/>
+<setEntry value="org.eclipse.e4.core.di.extensions"/>
+<setEntry value="org.eclipse.e4.core.di.extensions.supplier"/>
+<setEntry value="org.eclipse.e4.core.services"/>
+<setEntry value="org.eclipse.e4.emf.xpath"/>
+<setEntry value="org.eclipse.e4.ui.bindings"/>
+<setEntry value="org.eclipse.e4.ui.css.core"/>
+<setEntry value="org.eclipse.e4.ui.css.swt"/>
+<setEntry value="org.eclipse.e4.ui.css.swt.theme"/>
+<setEntry value="org.eclipse.e4.ui.di"/>
+<setEntry value="org.eclipse.e4.ui.dialogs"/>
+<setEntry value="org.eclipse.e4.ui.ide"/>
+<setEntry value="org.eclipse.e4.ui.model.workbench"/>
+<setEntry value="org.eclipse.e4.ui.services"/>
+<setEntry value="org.eclipse.e4.ui.widgets"/>
+<setEntry value="org.eclipse.e4.ui.workbench"/>
+<setEntry value="org.eclipse.e4.ui.workbench.addons.swt"/>
+<setEntry value="org.eclipse.e4.ui.workbench.renderers.swt"/>
+<setEntry value="org.eclipse.e4.ui.workbench.swt"/>
+<setEntry value="org.eclipse.e4.ui.workbench3"/>
+<setEntry value="org.eclipse.ecf"/>
+<setEntry value="org.eclipse.ecf.filetransfer"/>
+<setEntry value="org.eclipse.ecf.identity"/>
+<setEntry value="org.eclipse.ecf.provider.filetransfer"/>
+<setEntry value="org.eclipse.ecf.provider.filetransfer.httpclient45"/>
+<setEntry value="org.eclipse.ecf.provider.filetransfer.httpclient45.win32"/>
+<setEntry value="org.eclipse.ecf.provider.filetransfer.ssl"/>
+<setEntry value="org.eclipse.ecf.ssl"/>
+<setEntry value="org.eclipse.emf.common"/>
+<setEntry value="org.eclipse.emf.ecore"/>
+<setEntry value="org.eclipse.emf.ecore.change"/>
+<setEntry value="org.eclipse.emf.ecore.xmi"/>
+<setEntry value="org.eclipse.equinox.app@default:default"/>
+<setEntry value="org.eclipse.equinox.bidi"/>
+<setEntry value="org.eclipse.equinox.common@2:true"/>
+<setEntry value="org.eclipse.equinox.concurrent"/>
+<setEntry value="org.eclipse.equinox.console"/>
+<setEntry value="org.eclipse.equinox.event"/>
+<setEntry value="org.eclipse.equinox.frameworkadmin"/>
+<setEntry value="org.eclipse.equinox.frameworkadmin.equinox"/>
+<setEntry value="org.eclipse.equinox.http.jetty@default:default"/>
+<setEntry value="org.eclipse.equinox.http.registry"/>
+<setEntry value="org.eclipse.equinox.http.servlet@default:default"/>
+<setEntry value="org.eclipse.equinox.jsp.jasper"/>
+<setEntry value="org.eclipse.equinox.jsp.jasper.registry"/>
+<setEntry value="org.eclipse.equinox.launcher"/>
+<setEntry value="org.eclipse.equinox.launcher.win32.win32.x86_64"/>
+<setEntry value="org.eclipse.equinox.p2.artifact.repository"/>
+<setEntry value="org.eclipse.equinox.p2.console"/>
+<setEntry value="org.eclipse.equinox.p2.core"/>
+<setEntry value="org.eclipse.equinox.p2.director"/>
+<setEntry value="org.eclipse.equinox.p2.director.app"/>
+<setEntry value="org.eclipse.equinox.p2.directorywatcher"/>
+<setEntry value="org.eclipse.equinox.p2.engine"/>
+<setEntry value="org.eclipse.equinox.p2.extensionlocation"/>
+<setEntry value="org.eclipse.equinox.p2.garbagecollector"/>
+<setEntry value="org.eclipse.equinox.p2.jarprocessor"/>
+<setEntry value="org.eclipse.equinox.p2.metadata"/>
+<setEntry value="org.eclipse.equinox.p2.metadata.repository"/>
+<setEntry value="org.eclipse.equinox.p2.operations"/>
+<setEntry value="org.eclipse.equinox.p2.publisher"/>
+<setEntry value="org.eclipse.equinox.p2.publisher.eclipse"/>
+<setEntry value="org.eclipse.equinox.p2.reconciler.dropins"/>
+<setEntry value="org.eclipse.equinox.p2.repository"/>
+<setEntry value="org.eclipse.equinox.p2.repository.tools"/>
+<setEntry value="org.eclipse.equinox.p2.touchpoint.eclipse"/>
+<setEntry value="org.eclipse.equinox.p2.touchpoint.natives"/>
+<setEntry value="org.eclipse.equinox.p2.transport.ecf"/>
+<setEntry value="org.eclipse.equinox.p2.ui"/>
+<setEntry value="org.eclipse.equinox.p2.ui.importexport"/>
+<setEntry value="org.eclipse.equinox.p2.ui.sdk"/>
+<setEntry value="org.eclipse.equinox.p2.ui.sdk.scheduler"/>
+<setEntry value="org.eclipse.equinox.p2.updatechecker"/>
+<setEntry value="org.eclipse.equinox.p2.updatesite"/>
+<setEntry value="org.eclipse.equinox.preferences@default:default"/>
+<setEntry value="org.eclipse.equinox.registry@default:default"/>
+<setEntry value="org.eclipse.equinox.security"/>
+<setEntry value="org.eclipse.equinox.security.ui"/>
+<setEntry value="org.eclipse.equinox.security.win32.x86_64"/>
+<setEntry value="org.eclipse.equinox.simpleconfigurator"/>
+<setEntry value="org.eclipse.equinox.simpleconfigurator.manipulator"/>
+<setEntry value="org.eclipse.help.base@default:default"/>
+<setEntry value="org.eclipse.help.ui@default:default"/>
+<setEntry value="org.eclipse.help.webapp"/>
+<setEntry value="org.eclipse.help@default:default"/>
+<setEntry value="org.eclipse.jdt"/>
+<setEntry value="org.eclipse.jdt.annotation*1.1.400.v20180921-1416"/>
+<setEntry value="org.eclipse.jdt.annotation*2.2.400.v20191120-1313"/>
+<setEntry value="org.eclipse.jdt.apt.core"/>
+<setEntry value="org.eclipse.jdt.apt.pluggable.core"/>
+<setEntry value="org.eclipse.jdt.apt.ui"/>
+<setEntry value="org.eclipse.jdt.compiler.apt@default:false"/>
+<setEntry value="org.eclipse.jdt.compiler.tool@default:false"/>
+<setEntry value="org.eclipse.jdt.core.formatterapp"/>
+<setEntry value="org.eclipse.jdt.core.manipulation@default:default"/>
+<setEntry value="org.eclipse.jdt.core@default:default"/>
+<setEntry value="org.eclipse.jdt.debug.ui@default:default"/>
+<setEntry value="org.eclipse.jdt.debug@default:default"/>
+<setEntry value="org.eclipse.jdt.doc.isv"/>
+<setEntry value="org.eclipse.jdt.doc.user"/>
+<setEntry value="org.eclipse.jdt.junit.core"/>
+<setEntry value="org.eclipse.jdt.junit.runtime@default:default"/>
+<setEntry value="org.eclipse.jdt.junit4.runtime@default:default"/>
+<setEntry value="org.eclipse.jdt.junit5.runtime"/>
+<setEntry value="org.eclipse.jdt.junit@default:default"/>
+<setEntry value="org.eclipse.jdt.launching@default:default"/>
+<setEntry value="org.eclipse.jdt.ui@default:default"/>
+<setEntry value="org.eclipse.jetty.continuation"/>
+<setEntry value="org.eclipse.jetty.http"/>
+<setEntry value="org.eclipse.jetty.io"/>
+<setEntry value="org.eclipse.jetty.security"/>
+<setEntry value="org.eclipse.jetty.server"/>
+<setEntry value="org.eclipse.jetty.servlet"/>
+<setEntry value="org.eclipse.jetty.util"/>
+<setEntry value="org.eclipse.jface.databinding@default:default"/>
+<setEntry value="org.eclipse.jface.text@default:default"/>
+<setEntry value="org.eclipse.jface@default:default"/>
+<setEntry value="org.eclipse.jsch.core"/>
+<setEntry value="org.eclipse.jsch.ui"/>
+<setEntry value="org.eclipse.ltk.core.refactoring@default:default"/>
+<setEntry value="org.eclipse.ltk.ui.refactoring@default:default"/>
+<setEntry value="org.eclipse.osgi.compatibility.state"/>
+<setEntry value="org.eclipse.osgi.services@default:default"/>
+<setEntry value="org.eclipse.osgi.util"/>
+<setEntry value="org.eclipse.osgi@-1:true"/>
+<setEntry value="org.eclipse.pde"/>
+<setEntry value="org.eclipse.pde.api.tools"/>
+<setEntry value="org.eclipse.pde.api.tools.annotations"/>
+<setEntry value="org.eclipse.pde.api.tools.ui"/>
+<setEntry value="org.eclipse.pde.build"/>
+<setEntry value="org.eclipse.pde.core"/>
+<setEntry value="org.eclipse.pde.doc.user"/>
+<setEntry value="org.eclipse.pde.ds.annotations"/>
+<setEntry value="org.eclipse.pde.ds.core"/>
+<setEntry value="org.eclipse.pde.ds.lib"/>
+<setEntry value="org.eclipse.pde.ds.ui"/>
+<setEntry value="org.eclipse.pde.ds1_2.lib"/>
+<setEntry value="org.eclipse.pde.genericeditor.extension"/>
+<setEntry value="org.eclipse.pde.junit.runtime"/>
+<setEntry value="org.eclipse.pde.launching"/>
+<setEntry value="org.eclipse.pde.runtime"/>
+<setEntry value="org.eclipse.pde.ua.core"/>
+<setEntry value="org.eclipse.pde.ua.ui"/>
+<setEntry value="org.eclipse.pde.ui"/>
+<setEntry value="org.eclipse.pde.ui.templates"/>
+<setEntry value="org.eclipse.platform"/>
+<setEntry value="org.eclipse.platform.doc.isv"/>
+<setEntry value="org.eclipse.platform.doc.user"/>
+<setEntry value="org.eclipse.rcp"/>
+<setEntry value="org.eclipse.sdk@default:default"/>
+<setEntry value="org.eclipse.search@default:default"/>
+<setEntry value="org.eclipse.swt.win32.win32.x86_64"/>
+<setEntry value="org.eclipse.swt@default:default"/>
+<setEntry value="org.eclipse.team.core@default:default"/>
+<setEntry value="org.eclipse.team.genericeditor.diff.extension"/>
+<setEntry value="org.eclipse.team.ui@default:default"/>
+<setEntry value="org.eclipse.text.quicksearch"/>
+<setEntry value="org.eclipse.text@default:default"/>
+<setEntry value="org.eclipse.tools.layout.spy"/>
+<setEntry value="org.eclipse.ui.browser"/>
+<setEntry value="org.eclipse.ui.cheatsheets@default:default"/>
+<setEntry value="org.eclipse.ui.console@default:default"/>
+<setEntry value="org.eclipse.ui.editors@default:default"/>
+<setEntry value="org.eclipse.ui.externaltools@default:default"/>
+<setEntry value="org.eclipse.ui.forms@default:default"/>
+<setEntry value="org.eclipse.ui.genericeditor"/>
+<setEntry value="org.eclipse.ui.ide.application@default:default"/>
+<setEntry value="org.eclipse.ui.ide@default:default"/>
+<setEntry value="org.eclipse.ui.intro.quicklinks"/>
+<setEntry value="org.eclipse.ui.intro.universal"/>
+<setEntry value="org.eclipse.ui.intro@default:default"/>
+<setEntry value="org.eclipse.ui.monitoring"/>
+<setEntry value="org.eclipse.ui.navigator.resources@default:default"/>
+<setEntry value="org.eclipse.ui.navigator@default:default"/>
+<setEntry value="org.eclipse.ui.net"/>
+<setEntry value="org.eclipse.ui.themes"/>
+<setEntry value="org.eclipse.ui.trace"/>
+<setEntry value="org.eclipse.ui.views.log"/>
+<setEntry value="org.eclipse.ui.views.properties.tabbed@default:default"/>
+<setEntry value="org.eclipse.ui.views@default:default"/>
+<setEntry value="org.eclipse.ui.win32@default:false"/>
+<setEntry value="org.eclipse.ui.workbench.texteditor@default:default"/>
+<setEntry value="org.eclipse.ui.workbench@default:default"/>
+<setEntry value="org.eclipse.ui@default:default"/>
+<setEntry value="org.eclipse.update.configurator@default:default"/>
+<setEntry value="org.eclipse.urischeme"/>
+<setEntry value="org.hamcrest.core"/>
+<setEntry value="org.junit.jupiter.api"/>
+<setEntry value="org.junit.jupiter.engine"/>
+<setEntry value="org.junit.jupiter.migrationsupport"/>
+<setEntry value="org.junit.jupiter.params"/>
+<setEntry value="org.junit.platform.commons"/>
+<setEntry value="org.junit.platform.engine"/>
+<setEntry value="org.junit.platform.launcher"/>
+<setEntry value="org.junit.platform.runner"/>
+<setEntry value="org.junit.platform.suite.api"/>
+<setEntry value="org.junit.vintage.engine"/>
+<setEntry value="org.junit@default:default"/>
+<setEntry value="org.objectweb.asm"/>
+<setEntry value="org.objectweb.asm.tree"/>
+<setEntry value="org.opentest4j"/>
+<setEntry value="org.sat4j.core"/>
+<setEntry value="org.sat4j.pb"/>
+<setEntry value="org.tukaani.xz"/>
+<setEntry value="org.w3c.css.sac"/>
+<setEntry value="org.w3c.dom.events"/>
+<setEntry value="org.w3c.dom.smil"/>
+<setEntry value="org.w3c.dom.svg"/>
+</setAttribute>
+<setAttribute key="selected_workspace_bundles">
+<setEntry value="net.sf.groovyMonkey"/>
+<setEntry value="net.sf.groovyMonkey.beanshell"/>
+<setEntry value="net.sf.groovyMonkey.dom"/>
+<setEntry value="net.sf.groovyMonkey.editor"/>
+<setEntry value="net.sf.groovyMonkey.editor.rcp"/>
+<setEntry value="net.sf.groovyMonkey.groovy"/>
+<setEntry value="net.sf.groovyMonkey.help"/>
+<setEntry value="net.sf.groovyMonkey.python"/>
+<setEntry value="net.sf.groovyMonkey.ruby"/>
+<setEntry value="net.sf.groovyMonkey.tcl"/>
+<setEntry value="org.codehaus.groovy@default:default"/>
+</setAttribute>
+<booleanAttribute key="show_selected_only" value="false"/>
 <stringAttribute key="templateConfig" value="${target_home}\configuration\config.ini"/>
-<booleanAttribute key="tracing" value="true"/>
+<booleanAttribute key="tracing" value="false"/>
+<booleanAttribute key="useCustomFeatures" value="false"/>
 <booleanAttribute key="useDefaultConfig" value="true"/>
 <booleanAttribute key="useDefaultConfigArea" value="true"/>
 <booleanAttribute key="useProduct" value="true"/>
